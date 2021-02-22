@@ -112,6 +112,21 @@ nav a:focus {
   color: var(--active-link);
 }
 
+.nav-items .item {
+  position: relative;
+}
+
+.current::after {
+  content: "";
+  border: 2px solid var(--active-link);
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--active-link);
+}
+
 /* contact link */
 .contacts {
   display: flex;
@@ -200,6 +215,50 @@ nav a:focus {
   align-items: center;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  min-width: 528px;
+  min-height: 581px;
+  background-color: var(--second-text);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.modal-btn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--second-text);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* FEATURES */
 
 .feat-list {
@@ -279,6 +338,33 @@ nav a:focus {
 
 .what-we-do {
   padding-bottom: 94px;
+}
+
+.what-we-do .thumb {
+  position: relative;
+}
+
+.what-we-do .thumb p {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--second-text);
+  padding-top: 27px;
+  padding-bottom: 27px;
+  background-color: rgba(47, 48, 58, 0.8);
+  margin-top: 0;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  z-index: 0;
 }
 
 /* TEAM */
@@ -603,6 +689,35 @@ footer {
 .poster {
   background-color: var(--second-text);
   border: 1px solid #eeeeee;
+}
+
+.portfolio-thumb {
+  position: relative;
+}
+
+.portfolio-items .product-thumb {
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+
+  color: var(--second-text);
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.poster:focus .product-thumb,
+.poster:hover .product-thumb {
+  opacity: 1;
 }
 
 .poster:focus,
