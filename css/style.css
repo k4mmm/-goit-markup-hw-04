@@ -81,6 +81,7 @@ nav a {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-items {
@@ -141,6 +142,7 @@ nav a:focus {
   letter-spacing: 0.02em;
   display: flex;
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail-icon {
@@ -223,11 +225,17 @@ nav a:focus {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal {
@@ -240,8 +248,9 @@ nav a:focus {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 2;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn {
@@ -257,6 +266,7 @@ nav a:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 /* FEATURES */
@@ -437,16 +447,12 @@ nav a:focus {
 
 .social-icon {
   fill: var(--paragraph-text);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-links .link:hover .social-icon,
 .social-links .link:focus .social-icon {
   fill: var(--second-text);
-}
-
-.social-links .link:hover,
-.social-links .link:focus {
-  background-color: var(--active-link);
 }
 
 .social-links .link {
@@ -456,6 +462,13 @@ nav a:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--second-text);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-links .link:hover,
+.social-links .link:focus {
+  background-color: var(--active-link);
 }
 
 /* OUR CLIENTS */
@@ -492,6 +505,8 @@ nav a:focus {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   fill: var(--paragraph-text);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .company:hover,
@@ -609,6 +624,7 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .join-list .link:hover,
@@ -654,6 +670,9 @@ footer {
 
   margin-top: 8px;
   margin-left: 8px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio button:hover,
@@ -689,10 +708,13 @@ footer {
 .poster {
   background-color: var(--second-text);
   border: 1px solid #eeeeee;
+  box-shadow: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-thumb {
   position: relative;
+  overflow: hidden;
 }
 
 .portfolio-items .product-thumb {
@@ -712,12 +734,15 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
+
+  transform: translateY(100%);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .poster:focus .product-thumb,
 .poster:hover .product-thumb {
-  opacity: 1;
+  transform: translateY(0);
 }
 
 .poster:focus,
